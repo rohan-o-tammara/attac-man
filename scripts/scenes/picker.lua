@@ -1,7 +1,7 @@
 picker = Scene:new("picker")
 
 function picker:load()
-  pickScreen = love.graphics.newImage("assets/picker.png")
+  self.screen = love.graphics.newImage("assets/picker.png")
 end
 
 function picker:update(dt)
@@ -9,21 +9,21 @@ function picker:update(dt)
 end
 
 function picker:draw()
-  love.graphics.draw(pickScreen)
+  love.graphics.draw(self.screen)
 end
 
 function picker:mousereleased(x, y, button)
   if button == 1 then
-    if picker:isCursorIn(x, y, 199, 281, 253, 320) then
-      playerOneName = "jon"
+    if isCursorIn(x, y, Box(199, 281, 253, 320)) then
+      playerName = "jon"
     --[[
-    elseif picker:isCursorIn(x, y, 348, 302, 422, 335) then
+    elseif isCursorIn(x, y, 348, 302, 422, 335) then
       playerName = "dick"
-    elseif picker:isCursorIn(x, y, 348, 302, 422, 335) then
+    elseif isCursorIn(x, y, 348, 302, 422, 335) then
       playerName = "chad"
-    elseif picker:isCursorIn(x, y, 348, 302, 422, 335) then
+    elseif isCursorIn(x, y, 348, 302, 422, 335) then
       playerName = "nancy"
-    elseif picker:isCursorIn(x, y, 348, 302, 422, 335) then
+    elseif isCursorIn(x, y, 348, 302, 422, 335) then
       playerName = "bose"
       --]]
     end
