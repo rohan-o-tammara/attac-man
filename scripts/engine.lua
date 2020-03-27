@@ -2,7 +2,6 @@ local Noob = require "scripts/classes/noob"
 local Scene = require "scripts/classes/scene"
 
 local conn = { thread, txCh, rxCh }
-local connThreadStarted
 
 E = { scenes = {} }
 

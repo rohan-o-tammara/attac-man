@@ -1,6 +1,6 @@
 local E = require "scripts/engine"
-local F = require "libs/functions"
-local G = require "scripts/globals"
+local F = require "library/functions"
+local G = require "globals"
 
 function love.load()
   love.window.setMode(WIN_SZ.X, WIN_SZ.Y)
