@@ -2,16 +2,15 @@ local txCh = love.thread.getChannel('tx')
 local rxCh = love.thread.getChannel('rx')
 
 local socket = require "socket"
-
-local udp = socket.udp()
-
-udp:settimeout(0)
-udp:setsockname('*', 27272)
+local server = assert(socket.bind('*', 0))
+local ip, port = server:getsockname()
 
 local txDt = 0.1 -- 10 transmissions per second
 local t = os.clock()
 
 while true do
+  local client = server:accept()
+  local rxPacket, err = 
   -- If packet received push to engine
   local rxPacket, msg_or_ip, port_or_nil = udp:receivefrom()
   if rxPacket then
